@@ -1,0 +1,19 @@
+.list-step {
+  position: relative;
+  padding-bottom: 0.6em;
+
+  .step-image {
+    margin: auto;
+  }
+
+  &:before {
+    content : "";
+    position : absolute;
+    left: 5%;
+    bottom : 0;
+    height : 2px;
+    width : 90%;
+    border-bottom : 2px solid #464646;
+  }
+
+}

@@ -1,0 +1,78 @@
+
+@include min-screen(1024px) {
+  .snowmobile-stats-box {
+    max-width: 45%;
+  }
+}
+
+@include min-screen(728px) {
+  .snowmobile-stats-box {
+    max-width: 100%;
+  }
+}
+
+.snowmobile-stats-box {
+  box-sizing: border-box;
+  overflow: hidden;
+  float: right;
+  position: relative;
+  border: 1px dotted #b3b3b3;
+  border-left: none;
+  border-top: none;
+
+  // Bottom Flag
+  &:after {
+    content: '';
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0.4em;
+    border-top: 0.8em solid #F26522;
+    border-right: 0.8em solid #f7f7f7;
+    font-size: 2.2em;
+    font-weight: 800;
+  }
+
+  .stats-header {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    writing-mode: vertical-lr;
+    transform: rotate( -90deg );
+    transform-origin: 50% 33%;
+    position: absolute;
+    left: -1.1em;
+    top: 2em;
+
+    // Top Flag
+    &:before {
+      content: '';
+      width: 0;
+      position: absolute;
+      top: -0.12em;
+      left: 3.4em;
+      border-top: 0.8em solid #ffffff;
+      border-left: 0.8em solid #F26522;
+    }
+
+  }
+
+  .snowmobile-stats {
+    background-color: #f7f7f7;
+    overflow: hidden;
+    padding: 1em;
+    // tie_get_option( 'highlighted_color' )
+    border-left: 2.5em solid #f26522;
+  }
+
+  dt {
+    font-weight: 800;
+    margin-top: 0.7em;
+  }
+
+  dd {
+    display: inline-block;
+    padding-left: 1em;
+  }
+
+}
