@@ -42,6 +42,9 @@ if ( wp_get_theme() == 'Jarida' ) {
 	/* The Styles */
 	function sng_scripts() {
 		wp_enqueue_style( 'sng-plugin-styles', plugins_url( '/assets/css/project.min.css', __FILE__ ) );
+		wp_enqueue_script( 'google-map-api-v3', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '', false );
+		wp_enqueue_script( 'sng-google-map', plugins_url( '/assets/js/googlemaps.js', __FILE__ ), array('jquery', 'google-map-api-v3'), '', false );
+
 	}
 	add_action( 'wp_enqueue_scripts', 'sng_scripts' );
 }

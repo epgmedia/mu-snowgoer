@@ -30,7 +30,7 @@ $sled_class = get_field( 'sled_class' );
 			<?php if( $sled_class ) :
 				$sled_class_url = get_term_link( $sled_class ); ?>
 				<dt>Class</dt>
-				<dd><a href="<?php echo esc_url( $sled_class_url ); ?>"><?php _e( $sled_class->name ); ?></dd>
+				<dd><a href="<?php echo esc_url( $sled_class_url ); ?>"><?php _e( $sled_class->name ); ?></a></dd>
 			<?php endif; ?>
 			<dt>Engine</dt>
 			<dd><?php the_field( 'sled_engine' ); ?></dd>

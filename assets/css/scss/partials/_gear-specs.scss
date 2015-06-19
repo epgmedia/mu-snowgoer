@@ -1,0 +1,83 @@
+.gear-box {
+  background-color: #f7f7f7;
+  border-left: 2px solid #b8b8b8;
+  padding: 0 0 1em 0.6em;
+  position: relative;
+
+  &:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+  }
+
+  .gear-box-header {
+    height: 36px;
+    overflow: hidden;
+
+    &:after {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      width: 160px;
+      font-size: 30px;
+      content: "\0000a0";
+      background: url( '../images/header-dots.png' ) no-repeat top left;
+      @include max-screen(728px) { display: none; }
+    }
+  }
+
+  h2 {
+    width: 70%;
+    @include max-screen(728px) { width: 100%; }
+    color: #ffffff !important;
+    font-size: 36px !important;
+    font-style: italic;
+    margin: 0 !important;
+    padding: 0 0.3em;
+    text-transform: uppercase;
+    background-color: $secondary-color;
+
+    // Bottom Flag
+    &:after {
+      @include max-screen(728px) { display: none; }
+
+      width: 0;
+      border-top: 1em solid $secondary-color;
+      border-right: 1em solid #f7f7f7;
+      content: '';
+      font-size: 36px !important;
+      position: absolute;
+      right: 25%;
+      top: 0;
+    }
+  }
+
+  dt {
+    margin-top: 0.3em;
+  }
+
+  dd {
+    margin-left: 1em;
+  }
+
+  .gear-image {
+    float: left;
+    padding: 1em 1em 1em 0;
+    width: 25%;
+
+    @include max-screen(728px) {
+      float: none;
+      width: auto;
+    }
+
+  }
+
+  .gear-stats {
+    float: left;
+    width: 70%;
+  }
+
+}

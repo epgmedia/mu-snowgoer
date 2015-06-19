@@ -117,6 +117,12 @@ $sng_cpts['list_story'] = new SNG_Custom_Post_Type(
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
+		'rewrite' => array(
+			'slug'                => '/%category%',
+			'with_front'          => true,
+			'pages'               => true,
+			'feeds'               => true,
+		)
 	),
 	array(
 		'name'                => 'Lists',
@@ -232,7 +238,7 @@ function add_sng_post_types_to_queries( $query ) {
 	global $sng_cpts;
 
 	if (
-		( is_home() && $query->is_main_query() ) ||
+		( is_home() ) ||
 		(
 			is_category() || is_tag() || is_tax( 'brands' ) || is_tax( 'sled-class' )
 		)
@@ -246,4 +252,17 @@ function add_sng_post_types_to_queries( $query ) {
 	}
 
 	return $query;
+}
+
+// Filter out List_Story CPT and filter in the category
+add_filter( 'post_type_link', 'sng_list_post_link', 1, 3 );
+function sng_list_post_link( $post_link, $id = 0 ){
+	$post = get_post($id);
+	if ( is_object( $post ) && $post->post_type == 'list_story' ){
+		if( $terms = wp_get_object_terms( $post->ID, 'category' ) ) {
+			return str_replace( '%category%' , $terms[0]->slug , $post_link );
+		}
+	}
+
+	return $post_link;
 }

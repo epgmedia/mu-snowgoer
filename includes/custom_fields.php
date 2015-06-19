@@ -95,7 +95,7 @@ if( function_exists('acf_add_local_field_group') ):
 				),
 				'center_lat' => '44.9863884',
 				'center_lng' => '-93.4128325',
-				'zoom' => '',
+				'zoom' => 7,
 				'height' => 200,
 			),
 			array (
