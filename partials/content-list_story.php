@@ -23,9 +23,6 @@
 
 		the_content();
 
-		include 'list-story-list.php';
-
-
 		wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'tie' ), 'after' => '</div>' ) );
 
 		if( ! empty( $review_position ) && ( $review_position == 'bottom' || $review_position == 'both' ) ) {

@@ -39,6 +39,15 @@ if ( wp_get_theme() == 'Jarida' ) {
 	require 'includes/custom_post_types.php';
 	require 'includes/custom_taxonomies.php';
 	require 'includes/custom_fields.php';
+
+	function add_lists_to_posts( $content ) {
+		include 'partials/list-story-list.php';
+		$content .= sng_get_list_content();
+
+		return $content;
+	}
+	add_filter( 'the_content', 'add_lists_to_posts' );
+
 	/* The Styles */
 	function sng_scripts() {
 		wp_enqueue_style( 'sng-plugin-styles', plugins_url( '/assets/css/project.min.css', __FILE__ ) );

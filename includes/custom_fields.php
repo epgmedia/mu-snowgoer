@@ -137,13 +137,37 @@ if( function_exists('acf_add_local_field_group') ):
 		'title' => 'List Items',
 		'fields' => array (
 			array (
+				'key' => 'field_558476e28e0b6',
+				'label' => 'List Post?',
+				'name' => 'list_post',
+				'type' => 'true_false',
+				'instructions' => 'Are you creating a list post?',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array (
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'message' => '',
+				'default_value' => 0,
+			),
+			array (
 				'key' => 'field_55819d35ab785',
-				'label' => 'Items',
+				'label' => 'Content List',
 				'name' => 'list_step',
 				'type' => 'repeater',
 				'instructions' => '',
 				'required' => 0,
-				'conditional_logic' => 0,
+				'conditional_logic' => array (
+					array (
+						array (
+							'field' => 'field_558476e28e0b6',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+				),
 				'wrapper' => array (
 					'width' => '',
 					'class' => '',
@@ -225,7 +249,28 @@ if( function_exists('acf_add_local_field_group') ):
 				array (
 					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'list_story',
+					'value' => 'post',
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'tours',
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'races',
 				),
 			),
 		),
