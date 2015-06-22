@@ -51,11 +51,11 @@ $gear_website_parts = parse_url( $post_meta['gear_website'] );
 			<dd><span property="name"><?php _e( $post_meta['gear_product_name'] ); ?></span></dd>
 		<?php if( ! empty( $post_meta['gear_address'] ) ) : ?>
 			<dt><strong>Address:</strong></dt>
-			<dd><?php _e( $post_meta['gear_address']['address'] ); ?></dd>
+			<dd><a href="https://google.com/maps/?q=<?php _e( $post_meta['gear_address']['address'] ); ?>" target="_blank"><?php _e( $post_meta['gear_address']['address'] ); ?></a></dd>
 			<dt><strong>MSRP:</strong></dt>
 			<dd>$<?php _e( $post_meta['gear_msrp'] ); ?></dd>
 			<dt><strong>Website:</strong></dt>
-			<dd><span property="url"><?php _e( $gear_website_parts['host'] ); ?></span></dd>
+			<dd><span property="url"><a href="<?php _e( $post_meta['gear_website'] )?>" target="_blank"><?php _e( $gear_website_parts['host'] ); ?></a></span></dd>
 		<?php endif; ?>
 		</dl>
 	</aside>

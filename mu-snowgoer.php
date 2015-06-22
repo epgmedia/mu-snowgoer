@@ -39,20 +39,31 @@ if ( wp_get_theme() == 'Jarida' ) {
 	require 'includes/custom_post_types.php';
 	require 'includes/custom_taxonomies.php';
 	require 'includes/custom_fields.php';
+	/** Partials */
+	include 'partials/list-story-list.php';
 
-	function add_lists_to_posts( $content ) {
-		include 'partials/list-story-list.php';
-		$content .= sng_get_list_content();
+	/**
+	 * Dynamically adds list to content. Don't need a custom post type to add
+	 * list stories, since it can be managed with a checkbox and custom fields.
+	 *
+	 * @param $content string
+	 *
+	 * @return string
+	 */
+	function sng_add_lists_to_posts( $content ) {
+		if ( get_field( 'list_post' ) !== FALSE ) {
+			$content .= sng_get_list_content();
+		}
 
 		return $content;
 	}
-	add_filter( 'the_content', 'add_lists_to_posts' );
+	add_filter( 'the_content', 'sng_add_lists_to_posts' );
 
 	/* The Styles */
 	function sng_scripts() {
-		wp_enqueue_style( 'sng-plugin-styles', plugins_url( '/assets/css/project.min.css', __FILE__ ) );
+		wp_enqueue_style( 'sng-plugin-styles', plugins_url( '/assets/css/all.min.css', __FILE__ ) );
 		wp_enqueue_script( 'google-map-api-v3', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), '', false );
-		wp_enqueue_script( 'sng-google-map', plugins_url( '/assets/js/googlemaps.js', __FILE__ ), array('jquery', 'google-map-api-v3'), '', false );
+		wp_enqueue_script( 'sng-plugin-scripts', plugins_url( '/assets/js/all.min.js', __FILE__ ), array('jquery', 'google-map-api-v3'), '', false );
 
 	}
 	add_action( 'wp_enqueue_scripts', 'sng_scripts' );
