@@ -177,32 +177,3 @@ $sng_cpts['tours'] = new SNG_Custom_Post_Type(
 		'not_found_in_trash'  => 'Not found in Trash',
 	)
 );
-
-/* Adds custom post types to main query */
-add_action( 'pre_get_posts', 'add_sng_post_types_to_queries' );
-/**
- *
- *
- * @param $query WP_Query
- *
- * @return mixed
- */
-function add_sng_post_types_to_queries( $query ) {
-	global $sng_cpts;
-
-	if (
-		( is_home() ) ||
-		(
-			is_category() || is_tag() || is_tax( 'brands' ) || is_tax( 'sled-class' )
-		)
-		&& empty( $query->query_vars['suppress_filters'] )
-	) {
-		$post_types = array( 'post' );
-		foreach ( $sng_cpts as $cpt => $cpt_obj ) {
-			$post_types[] = $cpt;
-		}
-		$query->set( 'post_type', $post_types );
-	}
-
-	return $query;
-}

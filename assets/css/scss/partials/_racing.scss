@@ -1,0 +1,26 @@
+.entry {
+  ul.tabs {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+
+  ul.tabs li {
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  ul.tabs li.current {
+    color: #efefef;
+    background-color: $main-color;
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.current {
+    display: inherit;
+  }
+}

@@ -122,6 +122,26 @@
     float: left;
     width: 70%; }
 
+.entry ul.tabs {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+
+.entry ul.tabs li {
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer; }
+
+.entry ul.tabs li.current {
+  color: #efefef;
+  background-color: #547fbb; }
+
+.entry .tab-content {
+  display: none; }
+
+.entry .tab-content.current {
+  display: inherit; }
+
 .list-step {
   position: relative;
   padding-bottom: 0.6em; }

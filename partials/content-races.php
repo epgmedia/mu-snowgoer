@@ -16,13 +16,23 @@
 <?php get_template_part( 'includes/post-meta' ); // Get Post Meta template ?>
 	<div class="entry">
 
-		<?php
-		if ( ! empty( $review_position ) && ( $review_position == 'top' || $review_position == 'both'  ) )  {
-			tie_get_review('review-top');
-		}
+		<ul class="tabs">
+			<li class="tab-link" data-tab="tab-1">Story</li>
+			<li class="tab-link current" data-tab="tab-2">Results</li>
+		</ul>
 
-		the_content();
-		wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'tie' ), 'after' => '</div>' ) );
+		<?php if ( ! empty( $review_position ) && ( $review_position == 'top' || $review_position == 'both'  ) )  {
+			tie_get_review('review-top');
+		} ?>
+
+		<div id="tab-1" class="tab-content">
+			<?php the_content(); ?>
+		</div>
+		<div id="tab-2" class="tab-content current">
+			<?php include 'racing-results.php'; ?>
+		</div>
+
+		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'tie' ), 'after' => '</div>' ) );
 
 		if( ! empty( $review_position ) && ( $review_position == 'bottom' || $review_position == 'both' ) ) {
 			tie_get_review('review-bottom');
