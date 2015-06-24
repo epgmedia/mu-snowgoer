@@ -1,26 +1,91 @@
-.entry {
-  ul.tabs {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
+.race-results {
+
+  h3 {
+    padding-top: 0.9em;
   }
 
-  ul.tabs li {
+  li {
+    margin-left: 1.3em;
+    list-style: decimal !important;
+  }
+
+}
+
+@include min-screen(1024px) {
+  .racing-stats-box {
+    width: 50%;
+  }
+}
+
+@include max-screen(1023px) {
+  .racing-stats-box {
+    width: 100%;
+  }
+}
+
+.racing-stats-box {
+  min-height: 250px;
+  box-sizing: border-box;
+  overflow: hidden;
+  float: right;
+  position: relative;
+  border: 1px dotted #b3b3b3;
+  border-left: none;
+  border-top: none;
+
+  dt {
+    font-weight: 800;
+    margin-top: 0.7em;
+  }
+
+  dd {
     display: inline-block;
-    padding: 10px 15px;
-    cursor: pointer;
+    padding-left: 1em;
   }
 
-  ul.tabs li.current {
-    color: #efefef;
-    background-color: $main-color;
+  // Bottom Flag
+  &:after {
+    content: '';
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0.4em;
+    border-top: 0.8em solid $secondary-color;
+    border-right: 0.8em solid #f7f7f7;
+    font-size: 2.2em;
+    font-weight: 800;
   }
 
-  .tab-content {
-    display: none;
+  .racing-stats-header {
+    color: #ffffff;
+    font-size: 2.2em;
+    font-weight: 800;
+    writing-mode: vertical-lr;
+    transform: rotate( -90deg );
+    transform-origin: 50% 33%;
+    position: absolute;
+    left: -1.5em;
+    top: 2.5em;
+    text-transform: uppercase;
+
+    // Top Flag
+    &:before {
+      content: '';
+      width: 0;
+      position: absolute;
+      top: -0.19em;
+      left: 4.2em;
+      border-top: 0.8em solid #ffffff;
+      border-left: 0.8em solid $secondary-color;
+    }
+
   }
 
-  .tab-content.current {
-    display: inherit;
+  .racing-stats-body {
+    background-color: #f7f7f7;
+    overflow: hidden;
+    padding: 1em;
+    border-left: 2.5em solid $secondary-color;
   }
+
 }

@@ -20,8 +20,22 @@
 		if ( ! empty( $review_position ) && ( $review_position == 'top' || $review_position == 'both'  ) )  {
 			tie_get_review('review-top');
 		}
-
 		the_content();
+		?>
+
+
+		<aside class="tour-box">
+			<div class="tour-box-header">
+				<h2><?php _e( get_field( 'tour_location' ) ); ?></h2>
+			</div>
+			<?php if( $location = get_field('tour_map') ) : ?>
+				<div class="sng-map" style="height:400px;">
+					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+				</div>
+				<h4>Location: <em><?php echo get_field( 'tour_map' )['address']; ?></em></h4>
+			<?php endif; ?>
+		</aside>
+		<?php
 		wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'tie' ), 'after' => '</div>' ) );
 
 		if( ! empty( $review_position ) && ( $review_position == 'bottom' || $review_position == 'both' ) ) {

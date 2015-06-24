@@ -1,23 +1,18 @@
 <?php
 /**
- * Summary
+ * Snowmobiles CPT Template
  *
- * Description.
+ * @since 0.1.0
  *
- * @link  URL
- * @since x.x.x
- *
- * @package    {WordPress}
- * @subpackage {Component}
+ * @package WordPress
  */
 ?>
 <h1 class="name post-title entry-title" itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing"><span itemprop="name"><?php the_title(); ?></span></h1>
-
+<!-- Meta Information -->
 <?php get_template_part( 'includes/post-meta' ); ?>
-
 <!-- Sled Stats -->
 <?php include 'snowmobile-statsbox.php'; ?>
-
+<!-- The Content -->
 <div class="entry">
 	<?php
 	if ( ! empty( $review_position ) && ( $review_position == 'top' || $review_position == 'both'  ) )  {

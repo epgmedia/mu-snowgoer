@@ -1,17 +1,18 @@
 
 @include min-screen(1024px) {
   .snowmobile-stats-box {
-    max-width: 45%;
+    width: 40%;
   }
 }
 
 @include max-screen(1023px) {
   .snowmobile-stats-box {
-    max-width: 100%;
+    width: 100%;
   }
 }
 
-.snowmobile-stats-box {
+.stats-box {
+  min-height: 250px;
   box-sizing: border-box;
   overflow: hidden;
   float: right;
@@ -19,6 +20,16 @@
   border: 1px dotted #b3b3b3;
   border-left: none;
   border-top: none;
+
+  dt {
+    font-weight: 800;
+    margin-top: 0.7em;
+  }
+
+  dd {
+    display: inline-block;
+    padding-left: 1em;
+  }
 
   // Bottom Flag
   &:after {
@@ -43,6 +54,7 @@
     position: absolute;
     left: -0.95em;
     top: 2em;
+    text-transform: uppercase;
 
     // Top Flag
     &:before {
@@ -50,29 +62,18 @@
       width: 0;
       position: absolute;
       top: -0.15em;
-      left: 3.4em;
+      left: 3.1em;
       border-top: 0.8em solid #ffffff;
       border-left: 0.8em solid $secondary-color;
     }
 
   }
 
-  .snowmobile-stats {
+  .stats-body {
     background-color: #f7f7f7;
     overflow: hidden;
     padding: 1em;
-    // tie_get_option( 'highlighted_color' )
     border-left: 2.5em solid $secondary-color;
-  }
-
-  dt {
-    font-weight: 800;
-    margin-top: 0.7em;
-  }
-
-  dd {
-    display: inline-block;
-    padding-left: 1em;
   }
 
 }

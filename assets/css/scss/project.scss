@@ -1,8 +1,13 @@
+// Variables
 @import "partials/_variables";
 
+// Available Media Queries
 @import "partials/media-queries";
+
+// Individual Pages / Partials
 @import 'partials/sled-specs';
 @import 'partials/gear-specs';
 @import 'partials/racing';
 @import 'partials/list_story';
+@import 'partials/tour_specs';
 @import 'partials/google_map';

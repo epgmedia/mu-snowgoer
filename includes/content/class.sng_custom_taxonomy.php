@@ -43,6 +43,12 @@ Class SNG_Custom_Taxonomy extends SNG_Custom_Content {
 		 * @see post_types
 		 */
 		add_filter( $this->name . '_post_types', array( $this, 'add_post_types' ) );
+		/**
+		 * Replace the page template
+		 *
+		 * @see get_archive_template
+		 */
+		add_filter( 'taxonomy_template', array( $this, 'get_archive_template' ) );
 	}
 
 	/**
@@ -112,6 +118,28 @@ Class SNG_Custom_Taxonomy extends SNG_Custom_Content {
 	public function add_post_types() {
 
 		return $this->post_types;
+	}
+
+	/**
+	 * Filters in the archive template for a CPT
+	 *
+	 * @see post_init
+	 *
+	 * @param $archive_template
+	 *
+	 * @return string
+	 */
+	public function get_archive_template( $archive_template ) {
+		global $post;
+		global $sng_plugin_dir;
+		$theme_obj = wp_get_theme();
+		if ( is_tax( $this->name ) && $theme_obj->name == 'Jarida' ) {
+
+			return $sng_plugin_dir . '/templates/taxonomy-template.php';
+		} else {
+
+			return $archive_template;
+		}
 	}
 
 }
