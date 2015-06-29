@@ -1,12 +1,20 @@
 .tour-box {
+  width: 100%;
   background-color: #f7f7f7;
   border-left: 2px solid #b8b8b8;
   padding: 0 0 1em 0.6em;
   position: relative;
 
+  &:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+  }
+
   h2 {
     width: 70%;
-    @include max-screen(728px) { width: 100%; }
+    @include max-screen(767px) { width: 100%; }
     color: #ffffff !important;
     font-size: 36px !important;
     font-style: italic;
@@ -17,7 +25,7 @@
 
     // Bottom Flag
     &:after {
-      @include max-screen(728px) { display: none; }
+      @include max-screen(767px) { display: none; }
 
       width: 0;
       border-top: 1em solid $secondary-color;
@@ -38,13 +46,6 @@
     margin-left: 1em;
   }
 
-  &:after {
-    content: " ";
-    display: block;
-    height: 0;
-    clear: both;
-  }
-
   .tour-box-header {
     height: 36px;
     overflow: hidden;
@@ -59,13 +60,14 @@
       font-size: 30px;
       content: "\0000a0";
       background: url( '../images/header-dots.png' ) no-repeat top left;
-      @include max-screen(727px) { display: none; }
+      @include max-screen(767px) { display: none; }
     }
   }
 
   .sng-map {
     margin: 1.5em auto;
     width: 95%;
+    height: 400px;
   }
 
   .tour-image {
@@ -73,7 +75,7 @@
     padding: 1em 1em 1em 0;
     width: 25%;
 
-    @include max-screen(728px) {
+    @include max-screen(767px) {
       float: none;
       width: auto;
     }

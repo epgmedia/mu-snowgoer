@@ -29,7 +29,7 @@
 				<h2><?php _e( get_field( 'tour_location' ) ); ?></h2>
 			</div>
 			<?php if( $location = get_field('tour_map') ) : ?>
-				<div class="sng-map" style="height:400px;">
+				<div class="sng-map" style="">
 					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
 				</div>
 				<h4>Location: <em><?php echo get_field( 'tour_map' )['address']; ?></em></h4>

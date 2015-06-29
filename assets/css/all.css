@@ -6,8 +6,8 @@
   .snowmobile-stats-box {
     width: 100%; } }
 
-.stats-box {
-  min-height: 250px;
+.snowmobile-stats-box {
+  min-width: 250px;
   box-sizing: border-box;
   overflow: hidden;
   float: right;
@@ -15,13 +15,13 @@
   border: 1px dotted #b3b3b3;
   border-left: none;
   border-top: none; }
-  .stats-box dt {
+  .snowmobile-stats-box dt {
     font-weight: 800;
     margin-top: 0.7em; }
-  .stats-box dd {
+  .snowmobile-stats-box dd {
     display: inline-block;
     padding-left: 1em; }
-  .stats-box:after {
+  .snowmobile-stats-box:after {
     content: '';
     width: 0;
     position: absolute;
@@ -31,7 +31,7 @@
     border-right: 0.8em solid #f7f7f7;
     font-size: 2.2em;
     font-weight: 800; }
-  .stats-box .stats-header {
+  .snowmobile-stats-box .snowmobile-stats-header {
     color: #ffffff;
     font-size: 2.2em;
     font-weight: 800;
@@ -44,7 +44,7 @@
     left: -0.95em;
     top: 2em;
     text-transform: uppercase; }
-    .stats-box .stats-header:before {
+    .snowmobile-stats-box .snowmobile-stats-header:before {
       content: '';
       width: 0;
       position: absolute;
@@ -52,13 +52,15 @@
       left: 3.1em;
       border-top: 0.8em solid #ffffff;
       border-left: 0.8em solid #F26522; }
-  .stats-box .stats-body {
+  .snowmobile-stats-box .snowmobile-stats-body {
+    min-height: 250px;
     background-color: #f7f7f7;
     overflow: hidden;
     padding: 1em;
     border-left: 2.5em solid #F26522; }
 
 .gear-box {
+  width: 100%;
   background-color: #f7f7f7;
   border-left: 2px solid #b8b8b8;
   padding: 0 0 1em 0.6em;
@@ -68,6 +70,34 @@
     display: block;
     height: 0;
     clear: both; }
+  .gear-box h2 {
+    width: 70%;
+    color: #ffffff !important;
+    font-size: 36px !important;
+    font-style: italic;
+    margin: 0 !important;
+    padding: 0 0.3em;
+    text-transform: uppercase;
+    background-color: #F26522; }
+    @media screen and (max-width: 767px) {
+      .gear-box h2 {
+        width: 100%; } }
+    .gear-box h2:after {
+      width: 0;
+      border-top: 1em solid #F26522;
+      border-right: 1em solid #f7f7f7;
+      content: '';
+      font-size: 36px !important;
+      position: absolute;
+      right: 25%;
+      top: 0; }
+      @media screen and (max-width: 767px) {
+        .gear-box h2:after {
+          display: none; } }
+  .gear-box dt {
+    margin-top: 0.3em; }
+  .gear-box dd {
+    margin-left: 1em; }
   .gear-box .gear-box-header {
     height: 36px;
     overflow: hidden; }
@@ -81,42 +111,14 @@
       font-size: 30px;
       content: "\0000a0";
       background: url("../images/header-dots.png") no-repeat top left; }
-      @media screen and (max-width: 727px) {
+      @media screen and (max-width: 767px) {
         .gear-box .gear-box-header:after {
           display: none; } }
-  .gear-box h2 {
-    width: 70%;
-    color: #ffffff !important;
-    font-size: 36px !important;
-    font-style: italic;
-    margin: 0 !important;
-    padding: 0 0.3em;
-    text-transform: uppercase;
-    background-color: #F26522; }
-    @media screen and (max-width: 728px) {
-      .gear-box h2 {
-        width: 100%; } }
-    .gear-box h2:after {
-      width: 0;
-      border-top: 1em solid #F26522;
-      border-right: 1em solid #f7f7f7;
-      content: '';
-      font-size: 36px !important;
-      position: absolute;
-      right: 25%;
-      top: 0; }
-      @media screen and (max-width: 728px) {
-        .gear-box h2:after {
-          display: none; } }
-  .gear-box dt {
-    margin-top: 0.3em; }
-  .gear-box dd {
-    margin-left: 1em; }
   .gear-box .gear-image {
     float: left;
     padding: 1em 1em 1em 0;
     width: 25%; }
-    @media screen and (max-width: 728px) {
+    @media screen and (max-width: 767px) {
       .gear-box .gear-image {
         float: none;
         width: auto; } }
@@ -131,16 +133,9 @@
   margin-left: 1.3em;
   list-style: decimal !important; }
 
-@media screen and (min-width: 1024px) {
-  .racing-stats-box {
-    width: 50%; } }
-
-@media screen and (max-width: 1023px) {
-  .racing-stats-box {
-    width: 100%; } }
-
 .racing-stats-box {
-  min-height: 250px;
+  min-width: 250px;
+  width: 50%;
   box-sizing: border-box;
   overflow: hidden;
   float: right;
@@ -148,6 +143,9 @@
   border: 1px dotted #b3b3b3;
   border-left: none;
   border-top: none; }
+  @media screen and (max-width: 1023px) {
+    .racing-stats-box {
+      width: 100%; } }
   .racing-stats-box dt {
     font-weight: 800;
     margin-top: 0.7em; }
@@ -186,6 +184,7 @@
       border-top: 0.8em solid #ffffff;
       border-left: 0.8em solid #F26522; }
   .racing-stats-box .racing-stats-body {
+    min-height: 250px;
     background-color: #f7f7f7;
     overflow: hidden;
     padding: 1em;
@@ -206,10 +205,16 @@
     border-bottom: 2px solid #464646; }
 
 .tour-box {
+  width: 100%;
   background-color: #f7f7f7;
   border-left: 2px solid #b8b8b8;
   padding: 0 0 1em 0.6em;
   position: relative; }
+  .tour-box:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both; }
   .tour-box h2 {
     width: 70%;
     color: #ffffff !important;
@@ -219,7 +224,7 @@
     padding: 0 0.3em;
     text-transform: uppercase;
     background-color: #F26522; }
-    @media screen and (max-width: 728px) {
+    @media screen and (max-width: 767px) {
       .tour-box h2 {
         width: 100%; } }
     .tour-box h2:after {
@@ -231,18 +236,13 @@
       position: absolute;
       right: 25%;
       top: 0; }
-      @media screen and (max-width: 728px) {
+      @media screen and (max-width: 767px) {
         .tour-box h2:after {
           display: none; } }
   .tour-box dt {
     margin-top: 0.3em; }
   .tour-box dd {
     margin-left: 1em; }
-  .tour-box:after {
-    content: " ";
-    display: block;
-    height: 0;
-    clear: both; }
   .tour-box .tour-box-header {
     height: 36px;
     overflow: hidden; }
@@ -256,17 +256,18 @@
       font-size: 30px;
       content: "\0000a0";
       background: url("../images/header-dots.png") no-repeat top left; }
-      @media screen and (max-width: 727px) {
+      @media screen and (max-width: 767px) {
         .tour-box .tour-box-header:after {
           display: none; } }
   .tour-box .sng-map {
     margin: 1.5em auto;
-    width: 95%; }
+    width: 95%;
+    height: 400px; }
   .tour-box .tour-image {
     float: left;
     padding: 1em 1em 1em 0;
     width: 25%; }
-    @media screen and (max-width: 728px) {
+    @media screen and (max-width: 767px) {
       .tour-box .tour-image {
         float: none;
         width: auto; } }

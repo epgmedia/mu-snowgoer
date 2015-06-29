@@ -15,9 +15,9 @@ $sled_brand = get_field('sled_brand');
 $sled_class = get_field( 'sled_class' );
 
 ?>
-<aside class="stats-box">
-	<h2 class="stats-header">Specs</h2>
-	<div class="stats-body">
+<aside class="snowmobile-stats-box">
+	<h2 class="snowmobile-stats-header">Specs</h2>
+	<div class="snowmobile-stats-body">
 		<h3><?php _e( $sled_brand->name . '<br />' . get_field( 'sled_model' ) ); ?></h3>
 		<dl>
 			<?php if( $sled_brand ) :

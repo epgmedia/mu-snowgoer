@@ -28,9 +28,9 @@
 			<ul class="race-results">
 				<!-- Results -->
 				<?php while( have_rows( 'race_results' ) ) : the_row();
-					if ( $race_class = get_sub_field('race_class') ) {
-						echo '<h3>' . __( $race_class ) . '</h3>';
-					}
+					if ( $race_class = get_sub_field('race_class') ) { ?>
+						<h3><?php _e( $race_class ); ?></h3>
+					<?php }
 					if( have_rows( 'race_finishing_order' ) ): ?>
 						<ol>
 							<!-- Race -->
@@ -45,11 +45,11 @@
 								<?php } ?>
 								</li>
 							<?php } ?>
-						<?php endwhile;
-						echo '</ol>';
-					endif;
-				endwhile;
-			echo '</ul>';
-		endif; ?>
+						<?php endwhile; ?>
+						</ol>
+					<?php endif;
+				endwhile; ?>
+			</ul>
+		<?php endif; ?>
 	</div>
 </aside>

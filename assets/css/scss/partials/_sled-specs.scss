@@ -11,8 +11,8 @@
   }
 }
 
-.stats-box {
-  min-height: 250px;
+.snowmobile-stats-box {
+  min-width: 250px;
   box-sizing: border-box;
   overflow: hidden;
   float: right;
@@ -44,7 +44,7 @@
     font-weight: 800;
   }
 
-  .stats-header {
+  .snowmobile-stats-header {
     color: #ffffff;
     font-size: 2.2em;
     font-weight: 800;
@@ -69,7 +69,8 @@
 
   }
 
-  .stats-body {
+  .snowmobile-stats-body {
+    min-height: 250px;
     background-color: #f7f7f7;
     overflow: hidden;
     padding: 1em;
